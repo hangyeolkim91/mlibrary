@@ -1,0 +1,22 @@
+{% extends 'novels/base.html' %}
+{% block content %}
+  <div class="page-header">
+    <h1> Welcome to M's Library</h1>
+  </div>
+  <div class="page-text">
+    <div class="col-md-8">
+      <h2> The Bookcase List </h2>
+      {% if bookcase_list %}
+          <ul>
+          {% for bookcase in bookcase_list %}
+          <li><a href="{% url 'novels:detail_bookcase' bookcase.id %}"> {{ bookcase.name }}</a></li>
+          {% endfor %}
+          </ul>
+      {% else %}
+          <p> no novels </p>
+      {% endif %}
+
+      <a href="{% url 'novels:make_bookcase' %}">책장 만들기</a>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,7 @@
+<h1> uploaing on {{bookcase.name}} </h1>
+<form action="{% url 'novels:upload_novel' bookcase.id %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }} 
+    <input type='hidden' name='bookcase_id' value="{{ bookcase.id }}" >
+    <input type="submit" value='ok'>
+</form>

@@ -1,0 +1,15 @@
+{% extends 'novels/base.html' %}
+{% block content %}
+  <div class="page-header">
+    <h1>{{ bookcase.name }} </h1>
+  </div>
+  <div class="page-text">
+    <ul>
+    {% for novel in bookcase.novel_set.all %}
+    <li><a href="{% url 'novels:detail_novel' novel.id %}">{{ novel.title }}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+  <p><a href="{% url 'novels:index' %}">상위로</a></p>
+  <a href="{% url 'novels:upload_novel' bookcase.id %}">소설 업로드</a>
+{% endblock %}

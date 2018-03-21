@@ -1,0 +1,13 @@
+{% extends 'novels/base.html' %}
+{% block content %}
+  <div class="border-bottom">
+    <h1> {{ novel.title }} </h1>
+    <p>  {{ novel.author}} {{ novel.published_date }} </p>
+  </div>
+  <div class="page-text">
+    <p>
+    {{ novel.file.read.decode | linebreaksbr }}
+    </p>
+  </div>
+  <a href="{% url 'novels:detail_bookcase' novel.bookcase.id %}"> 상위로</a>
+{% endblock %}
